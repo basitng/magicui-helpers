@@ -1,4 +1,4 @@
-import { customAlphabet } from "nanoid";
+import { customAlphabet } from "nanoid/non-secure";
 
 export const nanoid = (chars?: number) => {
   return customAlphabet(
@@ -6,4 +6,3 @@ export const nanoid = (chars?: number) => {
     chars || 7 // 7-character random string by default
   )();
 };
-``;

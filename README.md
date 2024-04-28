@@ -1,4 +1,4 @@
-# @magicui/helpers
+# magicui-helpers
 
 This package provides a collection of useful React hooks and utilities for building UI components.
 
@@ -40,7 +40,7 @@ By destructuring `isMobile`, `isTablet`, and `isDesktop` from the `useMediaQuery
 
 ```javascript
 import React from "react";
-import { useMediaQuery } from "@magicui/helpers";
+import { useMediaQuery } from "magicui-helpers";
 
 const ResponsiveLayout: React.FC = () => {
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
@@ -75,7 +75,7 @@ By using the useViewport hook, you can easily access the current viewport dimens
 
 ```javascript
 import React from "react";
-import { useViewport } from "@magicui/helpers";
+import { useViewport } from "magicui-helpers";
 
 const ResponsiveComponent: React.FC = () => {
   const { width, height } = useViewport();
@@ -117,7 +117,7 @@ The useControlledForm hook provides a simple and reusable way to manage form sta
 
 ```javascript
 import React from "react";
-import { useControlledForm } from "@magicui/helpers";
+import { useControlledForm } from "magicui-helpers";
 
 const LoginForm: React.FC = () => {
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
@@ -169,7 +169,7 @@ The useDebounce hook, we ensure that the search is triggered only after the user
 
 ```typescript
 import React, { useState } from "react";
-import { useDebounce } from "@magicui/helpers";
+import { useDebounce } from "magicui-helpers";
 
 const SearchInput: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -206,7 +206,7 @@ The useDebounceEffect hook is extremely useful in scenarios where you want to de
 
 ```javascript
 import React, { useState } from "react";
-import { useDebounceEffect } from "@magicui/helpers";
+import { useDebounceEffect } from "magicui-helpers";
 
 const SearchInput: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -245,7 +245,7 @@ The `useEffectOnce hook`, we ensure that the API request to fetch user data is m
 
 ```javascript
 import React, { useState } from "react";
-import { useEffectOnce } from "@magicui/helpers";
+import { useEffectOnce } from "magicui-helpers";
 
 interface User {
   id: number;
@@ -307,7 +307,7 @@ The useLocalStorage hook, you can easily persist data across sessions and restor
 
 ```javascript
 import React from "react";
-import { useLocalStorage } from "@magicui/helpers";
+import { useLocalStorage } from "magicui-helpers";
 
 const Settings: React.FC = () => {
   const [theme, setTheme] = useLocalStorage < string > ("theme", "light");
@@ -338,7 +338,7 @@ export default Settings;
 
 ```javascript
 import React, { useRef, useState } from "react";
-import { useOnClickOutside } from "@magicui/helpers";
+import { useOnClickOutside } from "magicui-helpers";
 
 const Modal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -377,7 +377,7 @@ export default Modal;
 
 ````javascript
 import React from 'react';
-import {useBreakpoints} from '@magicui/helpers';
+import {useBreakpoints} from 'magicui-helpers';
 
 const ResponsiveLayout: React.FC = () => {
   const breakpoints = useBreakpoints();
@@ -427,7 +427,7 @@ The `useIntersectionObserver` hook, you can efficiently load images or other con
 
 ```javascript
 import React from "react";
-import { useIntersectionObserver } from "@magicui/helpers";
+import { useIntersectionObserver } from "magicui-helpers";
 
 interface LazyLoadImageProps {
   src: string;
@@ -461,7 +461,7 @@ The `useFormValidation` hook provides a powerful and flexible way to handle form
 
 ```javascript
 import React from "react";
-import { useFormValidation } from "@magicui/helpers";
+import { useFormValidation } from "magicui-helpers";
 
 const SignupForm: React.FC = () => {
   const { formFields, getFieldProps, isFormValid } = useFormValidation(
@@ -515,7 +515,7 @@ export default SignupForm;
 ### calculate
 
 ```javascript
-import { calculate } from "@magicui/helpers";
+import { calculate } from "magicui-helpers";
 
 const result1 = calculate("2 + 3 * 4"); // 14
 console.log(result1);
@@ -531,7 +531,7 @@ console.log(result3);
 
 ```javascript
 import React from "react";
-import { cn } from "@magicui/helpers";
+import { cn } from "magicui-helpers";
 
 const App = ({ isActive, className }) => {
   const containerClasses = cn("container", {
@@ -555,7 +555,7 @@ import {
   getLastDayOfMonth,
   getAdjustedBillingCycleStart,
   getBillingStartDate,
-} from "@magicui/helpers";
+} from "magicui-helpers";
 ```
 
 ### getDateTimeLocal
@@ -752,7 +752,7 @@ Output:
 The nFormatter function is a utility function that formats a number with abbreviations (e.g., 1.2K, 3.5M, 1.2B) for better readability, especially when dealing with large numbers.
 
 ```javascript
-import { nFormatter } from "@magicui/helpers";
+import { nFormatter } from "magicui-helpers";
 
 console.log(nFormatter(1234)); // Output: "1.2K"
 console.log(nFormatter(12345678, { digits: 2 })); // Output: "12.35M"
@@ -764,7 +764,7 @@ console.log(nFormatter(123456789012, { full: true })); // Output: "123,456,789,0
 The `nanoid` function is a utility function that generates a unique, secure, URL-friendly, and case-sensitive string identifier. It is a wrapper around the `customAlphabet` function from the `nanoid` library.
 
 ```javascript
-import { nanoid } from "@magicui/helpers";
+import { nanoid } from "magicui-helpers";
 
 console.log(nanoid()); // Output: e.g., "Xn7qVg2"
 console.log(nanoid(10)); // Output: e.g., "Zm9qVg2Xn7"
@@ -775,7 +775,7 @@ console.log(nanoid(10)); // Output: e.g., "Zm9qVg2Xn7"
 The `timeAgo`` function is a utility function that formats a given timestamp as a human-readable string representing how much time has passed since that timestamp. It provides options to display the time difference with or without the "ago" suffix.
 
 ```javascript
-import { timeAgo } from "@magicui/helpers";
+import { timeAgo } from "magicui-helpers";
 
 console.log(timeAgo(null)); // Output: "Never"
 console.log(timeAgo(new Date())); // Output: "Just now"
@@ -792,7 +792,7 @@ console.log(timeAgo(new Date(2022, 0, 1))); // Output: "Jan 1, 2022"
 The `trim` function is a utility function that trims whitespace from the beginning and end of a string. If the input is not a string, it returns the input as-is.
 
 ```javascript
-import { trim } from "@magicui/helpers";
+import { trim } from "magicui-helpers";
 
 // Example 1: Trimming user input
 const userInput = "   hello@example.com   ";
@@ -826,7 +826,7 @@ console.log(trimmedNumber); // Output: 42
 The `truncate` function is a utility function that truncates a given string to a specified length and adds an ellipsis (...) at the end if the string is longer than the specified length.
 
 ```javascript
-import { truncate } from "@magicui/helpers";
+import { truncate } from "magicui-helpers";
 
 console.log(truncate("Hello, World!", 7)); // Output: "Hello..."
 console.log(truncate("This is a long string", 10)); // Output: "This is a..."
@@ -840,7 +840,7 @@ console.log(truncate(undefined, 5)); // Output: null
 The isValidUrl function checks whether a given string is a valid URL.
 
 ```javascript
-import { isValidUrl } from "@magicui/helpers";
+import { isValidUrl } from "magicui-helpers";
 
 console.log(isValidUrl("https://example.com")); // Output: true
 console.log(isValidUrl("invalid-url")); // Output: false
@@ -851,7 +851,7 @@ console.log(isValidUrl("invalid-url")); // Output: false
 The function returns the input string if it is a valid URL. If the input string contains a dot (.) and no spaces, it tries to create a valid URL by prepending https:// to the string. If the input string is not a valid URL and cannot be converted to one, it returns an empty string.
 
 ```javascript
-import { getUrlFromString } from "@magicui/helpers";
+import { getUrlFromString } from "magicui-helpers";
 
 console.log(getUrlFromString("https://example.com")); // Output: "https://example.com"
 console.log(getUrlFromString("example.com")); // Output: "https://example.com"
@@ -863,7 +863,7 @@ console.log(getUrlFromString("invalid url")); // Output: ""
 The getSearchParams function retrieves the search parameters from a given URL as a key-value object.
 
 ```javascript
-import { getSearchParams } from "@magicui/helpers";
+import { getSearchParams } from "magicui-helpers";
 
 console.log(getSearchParams("https://example.com?foo=bar&baz=qux")); // Output: { foo: "bar", baz: "qux" }
 console.log(getSearchParams("https://example.com")); // Output: {}
@@ -874,7 +874,7 @@ console.log(getSearchParams("https://example.com")); // Output: {}
 The function returns an object containing the search parameters as key-value pairs. If a key appears multiple times, its value is stored as an array. If the URL is invalid or has no search parameters, it returns an empty object.
 
 ```javascript
-import { getSearchParamsWithArray } from "@magicui/helpers";
+import { getSearchParamsWithArray } from "magicui-helpers";
 
 console.log(getSearchParamsWithArray("https://example.com?foo=bar&foo=baz")); // Output: { foo: ["bar", "baz"] }
 console.log(getSearchParamsWithArray("https://example.com?foo=bar&baz=qux")); // Output: { foo: "bar", baz: "qux" }
