@@ -1,7 +1,7 @@
 {
-  "name": "magicui-helpers",
-  "version": "1.0.1",
-  "description": "A collection of helpful utility functions and hooks for React",
+  "name": "magicui-hooks",
+  "version": "1.0.0",
+  "description": "A collection of helpful hooks for React",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -26,12 +26,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/basitng/magicui-helpers.git"
+    "url": "https://github.com/basitng/magicui-hooks.git"
   },
   "bugs": {
-    "url": "https://github.com/basitng/magicui-helpers/issues"
+    "url": "https://github.com/basitng/magicui-hooks/issues"
   },
-  "homepage": "https://github.com/basitng/magicui-helpers#readme",
+  "homepage": "https://github.com/basitng/magicui-hooks#readme",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
