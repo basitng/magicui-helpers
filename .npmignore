@@ -1,0 +1,20 @@
+# Source files
+src/
+
+# Examples
+examples/
+
+# Configuration files
+tsconfig.json
+jest.config.js
+
+# Editor files
+.vscode/
+.idea/
+
+# Misc
+.DS_Store
+*.pem
+
+# TypeScript cache
+*.tsbuildinfo
