@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
     "lib": ["dom", "es2015"],
     "downlevelIteration": true,
     "jsx": "react",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "./dist",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -27,9 +25,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "emitDeclarationOnly": true,
-    "allowImportingTsExtensions": true
+    "emitDecoratorMetadata": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "examples"]

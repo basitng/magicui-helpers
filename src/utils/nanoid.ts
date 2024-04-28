@@ -1,8 +1,12 @@
-import { customAlphabet } from "nanoid/non-secure";
+export const nanoid = (chars = 7) => {
+  const alphabet =
+    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  let result = "";
+  const length = alphabet.length;
 
-export const nanoid = (chars?: number) => {
-  return customAlphabet(
-    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
-    chars || 7 // 7-character random string by default
-  )();
+  for (let i = 0; i < chars; i++) {
+    result += alphabet[Math.floor(Math.random() * length)];
+  }
+
+  return result;
 };
