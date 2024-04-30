@@ -1,6 +1,6 @@
 {
   "name": "magicui-react-hooks",
-  "version": "1.0.5",
+  "version": "3.0.0",
   "description": "A collection of helpful hooks for React",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

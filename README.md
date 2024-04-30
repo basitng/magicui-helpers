@@ -1,21 +1,21 @@
-# magicui-helpers
+# magicui-react-hooks
 
 This package provides a collection of useful React hooks and utilities for building UI components.
 
 ## Table of Contents
 
 - [Hooks](#hooks)
-  - [useBreakpoints](./useBreakpoints)
-  - [useControlledForm](./useControlledForm)
-  - [useDebounce](./useDebounce)
-  - [useDebounceEffect](./useDebounceEffect)
-  - [useLocalStorage](./useLocalStorage)
-  - [useMediaQuery](./useMediaQuery)
-  - [useEffectOnce](./useEffectOnce)
-  - [useViewport](./useViewport)
-  - [useIntersection](./useIntersection)
-  - [useFormValidation](./useFormValidation)
-  - [useOnClickOutSide](./useOnClickOutSide)
+  - [useBreakpoints](useBreakpoints)
+  - [useControlledForm](useControlledForm)
+  - [useDebounce](useDebounce)
+  - [useDebounceEffect](useDebounceEffect)
+  - [useLocalStorage](useLocalStorage)
+  - [useMediaQuery](useMediaQuery)
+  - [useEffectOnce](useEffectOnce)
+  - [useViewport](useViewport)
+  - [useIntersection](useIntersection)
+  - [useFormValidation](useFormValidation)
+  - [useOnClickOutSide](useOnClickOutSide)
 
 ## Hooks
 
@@ -27,7 +27,7 @@ By destructuring `isMobile`, `isTablet`, and `isDesktop` from the `useMediaQuery
 
 ```javascript
 import React from "react";
-import { useMediaQuery } from "magicui-helpers";
+import { useMediaQuery } from "magicui-react-hooks";
 
 const ResponsiveLayout: React.FC = () => {
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
@@ -62,7 +62,7 @@ By using the useViewport hook, you can easily access the current viewport dimens
 
 ```javascript
 import React from "react";
-import { useViewport } from "magicui-helpers";
+import { useViewport } from "magicui-react-hooks";
 
 const ResponsiveComponent: React.FC = () => {
   const { width, height } = useViewport();
@@ -104,7 +104,7 @@ The useControlledForm hook provides a simple and reusable way to manage form sta
 
 ```javascript
 import React from "react";
-import { useControlledForm } from "magicui-helpers";
+import { useControlledForm } from "magicui-react-hooks";
 
 const LoginForm: React.FC = () => {
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
@@ -156,7 +156,7 @@ The useDebounce hook, we ensure that the search is triggered only after the user
 
 ```typescript
 import React, { useState } from "react";
-import { useDebounce } from "magicui-helpers";
+import { useDebounce } from "magicui-react-hooks";
 
 const SearchInput: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -193,7 +193,7 @@ The useDebounceEffect hook is extremely useful in scenarios where you want to de
 
 ```javascript
 import React, { useState } from "react";
-import { useDebounceEffect } from "magicui-helpers";
+import { useDebounceEffect } from "magicui-react-hooks";
 
 const SearchInput: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -232,7 +232,7 @@ The `useEffectOnce hook`, we ensure that the API request to fetch user data is m
 
 ```javascript
 import React, { useState } from "react";
-import { useEffectOnce } from "magicui-helpers";
+import { useEffectOnce } from "magicui-react-hooks";
 
 interface User {
   id: number;
@@ -294,7 +294,7 @@ The useLocalStorage hook, you can easily persist data across sessions and restor
 
 ```javascript
 import React from "react";
-import { useLocalStorage } from "magicui-helpers";
+import { useLocalStorage } from "magicui-react-hooks";
 
 const Settings: React.FC = () => {
   const [theme, setTheme] = useLocalStorage < string > ("theme", "light");
@@ -325,7 +325,7 @@ export default Settings;
 
 ```javascript
 import React, { useRef, useState } from "react";
-import { useOnClickOutside } from "magicui-helpers";
+import { useOnClickOutside } from "magicui-react-hooks";
 
 const Modal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -364,7 +364,7 @@ export default Modal;
 
 ````javascript
 import React from 'react';
-import {useBreakpoints} from 'magicui-helpers';
+import {useBreakpoints} from 'magicui-react-hooks';
 
 const ResponsiveLayout: React.FC = () => {
   const breakpoints = useBreakpoints();
@@ -413,33 +413,45 @@ export default ResponsiveLayout;```
 The `useIntersectionObserver` hook, you can efficiently load images or other content only when they are in view, improving performance and user experience. This hook is particularly useful for implementing lazy loading, infinite scrolling, or triggering animations when elements become visible.
 
 ```javascript
-import React from "react";
-import { useIntersectionObserver } from "magicui-helpers";
+import React, { useRef, useState } from "react";
+import useIntersectionObserver from "magicui-react-hooks";
 
-interface LazyLoadImageProps {
-  src: string;
-  alt: string;
-}
+function Navbar() {
+  const [isSticky, setIsSticky] = useState(false);
+  const navbarRef = useRef(null);
+  const sentinelRef = useRef(null);
 
-const LazyLoadImage: React.FC<LazyLoadImageProps> = ({ src, alt }) => {
-  const [elementRef, isIntersecting] = useIntersectionObserver({
-    rootMargin: "0px 0px 100px 0px",
+  const [sentinelIntersecting] = useIntersectionObserver({
+    root: null,
+    threshold: 0,
+    rootMarginTop: "-100px",
   });
 
-  return (
-    <div ref={elementRef}>
-      {isIntersecting ? (
-        <img src={src} alt={alt} />
-      ) : (
-        <div
-          style={{ width: "100%", height: "200px", backgroundColor: "#f0f0f0" }}
-        />
-      )}
-    </div>
-  );
-};
+  const handleSentinelIntersection = () => {
+    setIsSticky(!sentinelIntersecting);
+  };
 
-export default LazyLoadImage;
+  return (
+    <>
+      <div ref={sentinelRef} onMouseEnter={handleSentinelIntersection} />
+      <nav
+        ref={navbarRef}
+        className={`navbar ${isSticky ? "navbar-sticky" : ""}`}
+      >
+        <div className="navbar-logo">Logo</div>
+        <ul className="navbar-menu">
+          <li>Home</li>
+          <li>About</li>
+          <li>Services</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+      {/* Rest of the page content */}
+    </>
+  );
+}
+
+export default Navbar;
 ```
 
 ### useFormValidation
@@ -448,7 +460,7 @@ The `useFormValidation` hook provides a powerful and flexible way to handle form
 
 ```javascript
 import React from "react";
-import { useFormValidation } from "magicui-helpers";
+import { useFormValidation } from "magicui-react-hooks";
 
 const SignupForm: React.FC = () => {
   const { formFields, getFieldProps, isFormValid } = useFormValidation(
