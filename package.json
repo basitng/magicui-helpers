@@ -27,12 +27,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/basitng/magicui-hooks.git"
+    "url": "https://github.com/basitng/magicui-react-hooks.git"
   },
   "bugs": {
-    "url": "https://github.com/basitng/magicui-hooks/issues"
+    "url": "https://github.com/basitng/magicui-react-hooks/issues"
   },
-  "homepage": "https://github.com/basitng/magicui-hooks#readme",
+  "homepage": "https://github.com/basitng/magicui-react-hooks#readme",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

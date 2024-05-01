@@ -5,17 +5,17 @@ This package provides a collection of useful React hooks and utilities for build
 ## Table of Contents
 
 - [Hooks](#hooks)
-  - [useBreakpoints](useBreakpoints)
-  - [useControlledForm](useControlledForm)
-  - [useDebounce](useDebounce)
-  - [useDebounceEffect](useDebounceEffect)
-  - [useLocalStorage](useLocalStorage)
-  - [useMediaQuery](useMediaQuery)
-  - [useEffectOnce](useEffectOnce)
-  - [useViewport](useViewport)
-  - [useIntersection](useIntersection)
-  - [useFormValidation](useFormValidation)
-  - [useOnClickOutSide](useOnClickOutSide)
+  - [useBreakpoints](#useBreakpoints)
+  - [useControlledForm](#useControlledForm)
+  - [useDebounce](#useDebounce)
+  - [useDebounceEffect](#useDebounceEffect)
+  - [useLocalStorage](#useLocalStorage)
+  - [useMediaQuery](#useMediaQuery)
+  - [useEffectOnce](#useEffectOnce)
+  - [useViewport](#useViewport)
+  - [useIntersection](#useIntersection)
+  - [useFormValidation](#useFormValidation)
+  - [useOnClickOutSide](#useOnClickOutSide)
 
 ## Hooks
 
